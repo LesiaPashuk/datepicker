@@ -1,0 +1,46 @@
+@use './variables' as *;
+@use 'sass:map';
+
+$themes: (
+  light: (
+    bg: map.get($colors, base_white),
+    text: map.get($colors, base_black),
+    icon: map.get($colors, base_gray),
+  ),
+
+  dark: (
+    bg: map.get($colors, base_black),
+    text: map.get($colors, light_gray),
+    icon: map.get($colors, light_gray),
+  ),
+);
+
+$theme-map: null;
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    @if $theme == light {
+      $theme-map: $map !global;
+
+      @content;
+
+      $theme-map: null !global;
+    } @else {
+      [data-theme='#{$theme}'] & {
+        $theme-map: $map !global;
+
+        @content;
+
+        $theme-map: null !global;
+      }
+    }
+  }
+}
+
+@function getTheme($key) {
+  @if $theme-map == null {
+    @return map.get(map.get($themes, light), $key);
+  }
+
+  @return map.get($theme-map, $key);
+}

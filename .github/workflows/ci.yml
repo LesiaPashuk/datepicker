@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - 'feature/**'
+      - 'subtask/**'
+  pull_request:
+    branches:
+      - develop
+      - 'feature/**'
+      - 'subtask/**'
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Type check
+        run: yarn type-check
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn build-storybook

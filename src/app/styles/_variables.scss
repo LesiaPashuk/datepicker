@@ -1,0 +1,50 @@
+$colors: (
+  none: transparent,
+  base_black: #333333,
+  base_gray: #aaaaaa,
+  light_gray: #f1f1f1,
+  base_white: #ffffff,
+  primary-1: #2f80ed,
+  primary-2: #2f80ed99,
+  primary-3: #2f80ed1a,
+  error: #d32f2f,
+);
+
+$spaces: (
+  none: 0px,
+  xxs: 4px,
+  xs: 8px,
+  sm: 10px,
+  sd: 12px,
+  s: 16px,
+  d: 20px,
+  md: 24px,
+  m: 32px,
+);
+
+$text-size: (
+  xs: 8px,
+  sm: 13px,
+  s: 14px,
+  ms: 16px,
+  md: 20px,
+  d: 24px,
+  m: 48px,
+  xl: 56px,
+);
+
+$text-bold: (
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+);
+
+$sizes: (
+  xs: 32px,
+  s: 42px,
+  l: 230px,
+  xl: 273px,
+  lg: 250px,
+);

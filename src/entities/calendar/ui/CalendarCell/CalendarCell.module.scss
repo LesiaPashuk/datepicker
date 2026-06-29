@@ -1,0 +1,78 @@
+.cell {
+  @extend %flex-center;
+
+  @include themed() {
+    color: getTheme('text');
+  }
+
+  height: map.get($sizes, xs);
+  width: map.get($sizes, xs);
+  border-radius: map.get($spaces, xs);
+  background-color: map.get($colors, none);
+  cursor: pointer;
+
+  &:hover {
+    background-color: map.get($colors, base_gray);
+  }
+
+  &__day-number {
+    font-size: map.get($text-size, sm);
+    font-weight: map.get($text-bold, semibold);
+  }
+
+  &__todo-indicator {
+    font-size: map.get($text-size, d);
+    position: absolute;
+    margin-left: map.get($spaces, s);
+    color: map.get($colors, primary-1);
+  }
+
+  &--other-month {
+    @include themed() {
+      color: map.get($colors, base_gray);
+    }
+
+    &:hover {
+      background-color: map.get($colors, light_gray);
+      color: map.get($colors, base_black);
+    }
+  }
+
+  &--weekend {
+    background-color: map.get($colors, none);
+
+    @include themed() {
+      color: map.get($colors, error);
+    }
+  }
+
+  &--holiday {
+    background-color: map.get($colors, error);
+    color: map.get($colors, base_white);
+  }
+
+  &--in-range {
+    background-color: map.get($colors, primary-3);
+    color: map.get($colors, primary-1);
+    border-radius: map.get($spaces, none);
+
+    &:hover {
+      color: map.get($colors, primary-1);
+
+      @include themed() {
+        background-color: getTheme('bg');
+      }
+    }
+  }
+
+  &--selected {
+    background-color: map.get($colors, primary-1);
+    color: map.get($colors, base_white);
+    border-radius: map.get($spaces, xs);
+
+    &:hover {
+      background-color: map.get($colors, primary-3);
+      color: map.get($colors, primary-1);
+    }
+  }
+}

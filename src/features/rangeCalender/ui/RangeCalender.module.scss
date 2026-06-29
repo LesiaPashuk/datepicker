@@ -1,0 +1,23 @@
+.container {
+  @extend %flex-column;
+
+  height: 100%;
+  width: auto;
+
+  &__inputs {
+    @extend %flex-column;
+  }
+  &__clear {
+    @include themed() {
+      background-color: getTheme('bg');
+      color: getTheme('text');
+    }
+
+    min-height: 36px;
+    width: map.get($sizes, lg);
+    border: 1px solid map.get($colors, light_gray);
+    border-radius: map.get($spaces, xs);
+    font-size: map.get($spaces, sd);
+    font-weight: map.get($text-bold, semibold);
+  }
+}

@@ -1,0 +1,12 @@
+.wrapper {
+  @extend %flex-column;
+
+  position: relative;
+
+  &__calendar {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    margin-top: map.get($spaces, sd);
+  }
+}

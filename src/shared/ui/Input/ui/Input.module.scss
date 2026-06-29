@@ -1,0 +1,84 @@
+.wrapper {
+  position: relative;
+  padding-bottom: map.get($spaces, sm);
+
+  &__label {
+    @include themed() {
+      color: getTheme('text');
+    }
+
+    height: map.get($spaces, d);
+    font-size: map.get($text-size, s);
+    font-weight: map.get($text-bold, semibold);
+    padding: map.get($spaces, none) map.get($spaces, xxs);
+  }
+
+  &__input-wrapper {
+    @extend %flex-center;
+
+    @include themed() {
+      background-color: getTheme('bg');
+    }
+
+    width: map.get($sizes, lg);
+    border: 1px solid map.get($colors, light_gray);
+    border-radius: map.get($spaces, xs);
+    margin: map.get($spaces, xxs) map.get($spaces, none);
+
+    &:focus-within {
+      border-color: map.get($colors, base_gray);
+    }
+  }
+
+  &__field {
+    @include themed() {
+      background-color: getTheme('bg');
+    }
+
+    @include themed() {
+      color: getTheme('text');
+    }
+
+    height: map.get($sizes, s);
+    width: 183px;
+    padding: map.get($spaces, none) map.get($spaces, xs);
+    margin: map.get($spaces, none);
+    border: map.get($spaces, none);
+    outline: none;
+  }
+
+  &__icon {
+    @include themed() {
+      color: getTheme('icon');
+    }
+
+    cursor: pointer;
+    background: map.get($colors, none);
+    border: map.get($spaces, none);
+    padding: map.get($spaces, none);
+    transition: opacity 0.2s;
+
+    &:hover {
+      color: map.get($colors, primary-1);
+    }
+
+    &--hidden {
+      visibility: hidden;
+      pointer-events: none;
+      opacity: map.get($spaces, none);
+    }
+  }
+
+  &__error {
+    position: absolute;
+    left: map.get($spaces, none);
+    bottom: map.get($spaces, none);
+    margin-left: map.get($spaces, xxs);
+    font-size: map.get($spaces, sm);
+    font-weight: map.get($text-bold, semibold);
+
+    @include themed() {
+      color: map.get($colors, error);
+    }
+  }
+}

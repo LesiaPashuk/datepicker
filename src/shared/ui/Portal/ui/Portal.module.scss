@@ -1,0 +1,197 @@
+.portal {
+  position: absolute;
+
+  @extend %flex-column-center;
+
+  @include themed() {
+    background-color: getTheme('bg');
+  }
+
+  @include themed() {
+    color: getTheme('text');
+  }
+
+  border: 1px solid map.get($colors, light_gray);
+  padding: map.get($spaces, xs);
+  border-radius: map.get($spaces, xs);
+  z-index: 10;
+  max-height: map.get($sizes, l);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: map.get($spaces, xs);
+    height: map.get($spaces, xs);
+    background-color: map.get($colors, light_gray);
+    display: block;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: map.get($colors, primary-3);
+    border-radius: map.get($spaces, xs);
+
+    &:hover {
+      background-color: map.get($colors, primary-2);
+    }
+  }
+}
+
+.header {
+  @extend %flex-between;
+
+  width: 100%;
+
+  &__title {
+    margin: 0 0 map.get($spaces, sm) 0;
+    font-weight: map.get($text-bold, semibold);
+    font-size: map.get($text-size, s);
+
+    @include themed() {
+      color: getTheme('text');
+    }
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    color: map.get($colors, error);
+    cursor: pointer;
+    font-size: map.get($text-size, md);
+    padding: map.get($spaces, none) map.get($spaces, xs);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.input-wrapper {
+  @extend %flex-center;
+
+  &__input {
+    @extend %flex-center;
+
+    @include themed() {
+      background-color: getTheme('bg');
+    }
+
+    @include themed() {
+      color: getTheme('text');
+    }
+
+    width: 180px;
+    border: 1px solid map.get($colors, light_gray);
+    margin: map.get($spaces, xxs) map.get($spaces, none);
+    height: map.get($spaces, md);
+    outline: none;
+    border-radius: map.get($spaces, xs) 0 0 map.get($spaces, xs);
+  }
+
+  &__button {
+    background-color: map.get($colors, primary-1);
+    color: map.get($colors, base_white);
+    height: 28px;
+    padding: map.get($spaces, none) map.get($spaces, xs);
+    border: 1px solid map.get($colors, primary-1);
+    border-radius: 0 map.get($spaces, xs) map.get($spaces, xs) 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: getTheme('primary-1');
+    }
+  }
+}
+
+.todo-list {
+  @extend %flex-column-center;
+
+  max-height: 300px;
+  max-width: 200px;
+  margin-top: map.get($spaces, sm);
+
+  &__empty {
+    text-align: center;
+    color: map.get($colors, base_gray);
+    padding: map.get($spaces, lg);
+    font-size: map.get($text-size, s);
+  }
+
+  &__item {
+    @extend %flex-between;
+
+    min-width: 180px;
+    width: 100%;
+
+    @include themed() {
+      background-color: getTheme('bg');
+    }
+
+    padding: map.get($spaces, xs) map.get($spaces, sm);
+    margin-bottom: map.get($spaces, xs);
+    border-radius: map.get($spaces, xs);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: map.get($colors, primary-2);
+      color: map.get($colors, base_white);
+      transform: translateX(2px);
+    }
+  }
+
+  &__text {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+    word-break: break-word;
+    margin-right: map.get($spaces, sm);
+    height: 100%;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include themed() {
+      color: getTheme('text');
+    }
+  }
+
+  &__delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: map.get($text-size, ms);
+    padding: map.get($spaces, none);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    @include themed() {
+      color: getTheme('text');
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__confirm-yes,
+  &__confirm-no {
+    border: none;
+    padding: map.get($spaces, xxs) map.get($spaces, xs);
+    cursor: pointer;
+    border-radius: map.get($spaces, xxs);
+    font-size: 11px;
+    margin-left: map.get($spaces, xxs);
+    transition: opacity 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: map.get($colors, base_white);
+    }
+  }
+}

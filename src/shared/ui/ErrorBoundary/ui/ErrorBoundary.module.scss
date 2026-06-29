@@ -1,0 +1,20 @@
+.errorContainer {
+  @extend %flex-center;
+
+  position: relative;
+  height: map.get($sizes, xs);
+  width: 100%;
+  background-color: map.get($colors, primary-2);
+  padding: map.get($spaces, none) map.get($spaces, sm);
+  border-radius: map.get($spaces, xs);
+  color: map.get($colors, base_white);
+  border: 1px solid map.get($colors, base_white);
+
+  .reload {
+    background-color: map.get($colors, none);
+    border: map.get($spaces, none);
+    font-size: map.get($text-size, d);
+    color: map.get($colors, base_white);
+    cursor: pointer;
+  }
+}

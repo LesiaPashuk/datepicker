@@ -1,0 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  padding: map.get($spaces, none);
+  margin: map.get($spaces, none);
+  width: map.get($sizes, l);
+  height: map.get($sizes, xs);
+  flex: 1;
+}

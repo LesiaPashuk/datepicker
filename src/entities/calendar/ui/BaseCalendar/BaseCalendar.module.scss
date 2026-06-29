@@ -1,0 +1,76 @@
+.calendar {
+  @extend %flex-column-center;
+
+  @include themed() {
+    background-color: getTheme('bg');
+  }
+
+  min-height: 110px;
+  width: map.get($sizes, lg);
+  border: 1px solid map.get($colors, light_gray);
+  border-radius: map.get($spaces, xs);
+  padding-bottom: map.get($spaces, xs);
+
+  &__header {
+    @extend %flex-between;
+
+    @include themed() {
+      background-color: getTheme('bg');
+    }
+
+    width: map.get($sizes, lg);
+    margin: map.get($spaces, xs);
+  }
+
+  &__button {
+    @include themed() {
+      color: getTheme('text');
+    }
+
+    margin: map.get($spaces, none) map.get($spaces, s);
+    padding: map.get($spaces, none);
+    background-color: map.get($colors, none);
+    border: none;
+    transition: color 0.1s ease;
+
+    &:hover {
+      @include themed() {
+        color: getTheme('icon');
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+    }
+  }
+
+  &__month,
+  &__year {
+    @include themed() {
+      color: getTheme('text');
+    }
+    font-size: map.get($text-size, s);
+    font-weight: map.get($text-bold, bold);
+  }
+
+  &__notes {
+    color: map.get($colors, base_gray);
+    font-size: map.get($spaces, sm);
+  }
+  &__year {
+    margin-left: none;
+    padding: none;
+    border: none;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
